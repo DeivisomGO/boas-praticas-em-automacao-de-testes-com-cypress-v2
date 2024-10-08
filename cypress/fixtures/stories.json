@@ -2,19 +2,27 @@
   "hits": [
     {
       "objectID": "0",
-      "title": "Agile Testing",
-      "author": "Lisa Crispin & Janet Gregory",
-      "url": "https://example.com/lc-jg",
-      "num_comments": 85,
+      "title": "Dom Casmurro",
+      "author": "Machado de Assis",
+      "url": "https://editora-vagalume.com/ma",
+      "num_comments": 222,
       "points": 1000
     },
     {
       "objectID": "1",
-      "title": "Clean Code",
-      "author": "Robert C. Martin",
-      "url": "https://example.com/rm",
-      "num_comments": 98,
-      "points": 1953
+      "title": "Pequeno Príncipe",
+      "author": "Antoine de Saint-Exupéry",
+      "url": "https://prince.com/pp",
+      "num_comments": 398,
+      "points": 15953
+    },
+    {
+      "objectID": "2",
+      "title": "Dom Quixote de la mancha",
+      "author": "Miguel de Cervantes",
+      "url": "https://donquixote.es/dqdlm",
+      "num_comments": 645,
+      "points": 82022
     }
   ]
 }

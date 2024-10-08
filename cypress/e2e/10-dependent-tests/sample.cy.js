@@ -36,3 +36,23 @@ describe('Dependent tests bad practice', () => {
     cy.get('.list-group:contains(My note updated)').should('not.exist')
   })
 })
+
+describe('Criar um teste CRUD de um usuário', () => {
+  it('CRUD de um usuário', () => {
+    // Passos para criar o usuário
+
+    // Verificar que o usuário foi criado
+
+    // Passos para ler o usuário criado pelo teste anterior
+
+    // Verificar que o usuário existe
+
+    // Passos para atualizar o usuário lido no teste anterior
+
+    // Verificar que o usuário foi atualizado
+
+    // Passos para deletar o usuário atualizado no teste anterior
+
+    // Verificar que o usuário foi deletado
+  })
+})

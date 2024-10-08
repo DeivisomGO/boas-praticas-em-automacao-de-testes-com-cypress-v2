@@ -11,4 +11,10 @@ describe('Browser testing bad practice - anchor with target _blank', () => {
     cy.url()
       .should('be.equal', 'https://cac-tat.s3.eu-central-1.amazonaws.com/privacy.html')
   })
+
+  it('verify attributes', () => {
+    cy.contains('a', 'Política de Privacidade')
+      .should('have.attr', 'href', 'privacy.html')
+      .and('have.attr', 'target', '_blank')
+  })
 })

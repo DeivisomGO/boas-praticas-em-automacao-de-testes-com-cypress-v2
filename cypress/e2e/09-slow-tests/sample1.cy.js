@@ -1,5 +1,5 @@
-describe('Code duplication bad practice - repetitive steps', () => {
-  it('searches by typing and hitting enter', () => {
+describe('Teste lento - Má prática', () => {
+  beforeEach(() => {
     cy.intercept(
       'GET',
       '**/search**'
@@ -11,7 +11,12 @@ describe('Code duplication bad practice - repetitive steps', () => {
     cy.get('input[type="text"]')
       .should('be.visible')
       .and('have.value', 'redux')
+      .as('searchField')
       .clear()
+  })
+
+  it('searches by typing and hitting enter', () => {
+    cy.get('@searchField')
       .type('frontend testing{enter}')
 
     cy.wait('@getStories')
@@ -19,11 +24,15 @@ describe('Code duplication bad practice - repetitive steps', () => {
     cy.get('.table-row')
       .should('have.length', 100)
   })
+})
 
-  it('searches by typing and pressing the search button', () => {
+const { hits } = require('../../fixtures/stories.json')
+describe('Teste lento - BOA prática - Usando fixtures', () => {
+  beforeEach(() => {
     cy.intercept(
       'GET',
-      '**/search**'
+      '**/search**',
+      {fixture: 'stories'}
     ).as('getStories')
 
     cy.visit('https://hackernews-seven.vercel.app')
@@ -32,16 +41,17 @@ describe('Code duplication bad practice - repetitive steps', () => {
     cy.get('input[type="text"]')
       .should('be.visible')
       .and('have.value', 'redux')
+      .as('searchField')
       .clear()
-      .type('frontend testing')
+  })
 
-    cy.contains('button', 'Search')
-      .should('be.visible')
-      .click()
+  it('searches by typing and hitting enter', () => {
+    cy.get('@searchField')
+      .type('frontend testing{enter}')
 
     cy.wait('@getStories')
 
     cy.get('.table-row')
-      .should('have.length', 100)
+      .should('have.length', hits.length)
   })
 })
